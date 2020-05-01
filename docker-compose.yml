@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  cake:
+    build:
+      context: .
+    container_name: food-cake
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    volumes:
+      - ../foodcoopshop:/var/www/html
+    environment:
+      SECURITY_SALT: 12345678987654321qwertzUIZTREWsdCVBNJHGFDS
+      MYSQL_HOST: food-db
+      MYSQL_USERNAME: fooddb
+      MYSQL_PASSWORD: food&321§db
+
+  db:
+    image: mysql:5.7.7
+    container_name: food-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: fcshop123!
+      MYSQL_USER: fooddb
+      MYSQL_PASSWORD: food&321§db
+      MYSQL_DATABASE: fooddb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  mailhog:
+    image: phpdockerio/mailhog:latest
+    container_name: food-mailhog
+    ports:
+      - 8125:8025
