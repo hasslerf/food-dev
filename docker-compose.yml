@@ -11,6 +11,8 @@ services:
       - db
     volumes:
       - ../foodcoopshop:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
     environment:
       SECURITY_SALT: 12345678987654321qwertzUIZTREWsdCVBNJHGFDS
       MYSQL_HOST: food-db
@@ -29,10 +31,18 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./db:/var/lib/mysql
 
   mailhog:
     image: phpdockerio/mailhog:latest
     container_name: food-mailhog
     ports:
-      - 8125:8025
+      - 1025:1025
+      - 8025:8025
+
+  adminer:
+    image: adminer
+    container_name: food-adminer
+    restart: always
+    ports:
+      - 8080:8080
