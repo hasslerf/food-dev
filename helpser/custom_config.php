@@ -50,7 +50,7 @@ return [
      * A random string used in security hashing methods.
      */
     'Security' => [
-        'salt' => 'cb23b6a13fc9dfdb1865d2efa04909dd3a4c08de9c9fea53f5a75b0de252ff71'
+        'salt' => ''
     ],
 
     'app' => [

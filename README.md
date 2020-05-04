@@ -28,11 +28,10 @@ Calling `docker ps` should show you the running containers which are
 2. Hop onto your webserver to install the dependencies. Therefore open a shell on your docker-webserver and  `docker exec -it food-cake bash` and run
    - `composer install` to install some PHP-Libraries and 
    - `npm --prefix ./webroot install ./webroot` to install JavaScript-Dependencies.
-3. Follow 
-4. Follow the credentials-paragraph from the installation guide too, but set SMTP-Server to `food-mailhog` at Port `1025` with empty credentials.
-5. Same with the `custom_config.php`
-6. After adding a Supercustomer (use the same data as you entered in the `credentials.config`) change it's Customer-Role to `5` and set it to `1`(active). This is a good time to see the Mail-Catcher in action! Open http://localhost:8025 and see incoming mails.
-7. To get the full experience out of CakePHP and the foodcoopshop your local domain should end to `.test`. Maybe you want to customize your local hosts-File and add the line `127.0.0.1	food.test`.
+3. Follow the credentials-paragraph from the installation guide too, but set SMTP-Server to `food-mailhog` at Port `1025` with empty credentials.
+4. Same with the `custom_config.php`
+5. After adding a Supercustomer (use the same data as you entered in the `credentials.config`) change it's Customer-Role to `5` and set it to `1`(active). This is a good time to see the Mail-Catcher in action! Open http://localhost:8025 and see incoming mails.
+6. To get the full experience out of CakePHP and the foodcoopshop your local domain should end to `.test`. Maybe you want to customize your local hosts-File and add the line `127.0.0.1	food.test`. Calling http://food.test shows the red Debug-Bar-Icon on the bottom right corner.
 
 ## It failed?
 
